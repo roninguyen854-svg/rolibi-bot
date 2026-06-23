@@ -14,10 +14,6 @@ client.on(Events.InteractionCreate, async interaction => {
   if (interaction.commandName === 'ping') {
     await interaction.reply('🏓 Pong!');
   }
-
-  if (interaction.commandName === 'balance') {
-    await interaction.reply('💰 Bạn có 1000 coins');
-  }
 });
 
 client.login(process.env.TOKEN);
