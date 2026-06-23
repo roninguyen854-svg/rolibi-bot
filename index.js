@@ -1,10 +1,11 @@
-const http = require("http");
+const { Client, GatewayIntentBits } = require('discord.js');
 
-const server = http.createServer((req, res) => {
-  res.write("Bot is running!");
-  res.end();
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds]
 });
 
-server.listen(3000, () => {
-  console.log("Server running on port 3000");
+client.once('ready', () => {
+  console.log(`Logged in as ${client.user.tag}`);
 });
+
+client.login(process.env.TOKEN);
