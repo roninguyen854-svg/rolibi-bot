@@ -1,3 +1,13 @@
+const { Client, GatewayIntentBits, Events } = require('discord.js');
+
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds]
+});
+
+client.once(Events.ClientReady, () => {
+  console.log(`Logged in as ${client.user.tag}`);
+});
+
 client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
@@ -9,9 +19,5 @@ client.on(Events.InteractionCreate, async interaction => {
     await interaction.reply('💰 Bạn có 1000 coins!');
   }
 });
-new SlashCommandBuilder()
-  .setName('balance')
-  .setDescription('Xem số coin');
-git add .
-git commit -m "add balance"
-git push
+
+client.login(process.env.TOKEN);
