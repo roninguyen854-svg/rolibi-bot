@@ -12,8 +12,11 @@ client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
   if (interaction.commandName === 'ping') {
-   console.log("PING RECEIVED");
-await interaction.reply("Pong!");
+    await interaction.reply('🏓 Pong!');
+  }
+
+  if (interaction.commandName === 'balance') {
+    await interaction.reply('💰 Bạn có 1000 coins');
   }
 });
 
